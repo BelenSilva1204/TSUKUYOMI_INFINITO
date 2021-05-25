@@ -16,15 +16,14 @@
 
   <table>
     <tr>
-      <th>ID</th>
       <th>Nombre</th>
-      <th>Altura</th>
+      <th>Comuna</th>
     </tr>
   
       <?php
         // echo $tiendas;
         foreach ($tiendas as $p) {
-          echo "<tr><td>$p[0]</td><td>$p[1]</td><td>$p[2]</td></tr>";
+          echo "<tr><td>$p[0]</td><td>$p[1]</td></tr>";
       }
       ?>
       
