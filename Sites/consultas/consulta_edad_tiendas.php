@@ -7,7 +7,7 @@
 
     $comuna = $_POST["comuna_elegida"];
   #Se construye la consulta como un string
- 	$query = "SELECT d.dir_comuna, AVG(p.edad) FROM Personal AS p, Direcciones AS d, Trabaja_en AS te, Tiendas as t WHERE te.rut = p.rut AND te.tid = d.did AND d.dir_comuna = $comuna GROUP BY d.dir_comuna;";
+ 	$query = "SELECT d.dir_comuna, AVG(p.edad) FROM Personal AS p, Direcciones AS d, Trabaja_en AS te, Tiendas as t WHERE te.rut = p.rut AND te.tid = d.did AND d.dir_comuna = '$comuna' GROUP BY d.dir_comuna;";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
 	$result = $db -> prepare($query);
