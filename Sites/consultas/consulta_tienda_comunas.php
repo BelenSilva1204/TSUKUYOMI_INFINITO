@@ -6,7 +6,7 @@
   require("../config/conexion.php");
 
   #Se construye la consulta como un string
- 	$query = "SELECT t.nombre, d.dir_comuna FROM Tiendas AS t JOIN Despachos AS d ON t.tid ? d.tid ORDER BY t.nombre;";
+ 	$query = "SELECT t.nombre, d.dir_comuna FROM Tiendas AS t JOIN Despachos AS d ON t.tid = d.tid ORDER BY t.nombre;";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
 	$result = $db -> prepare($query);
