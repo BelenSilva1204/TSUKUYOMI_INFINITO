@@ -7,7 +7,7 @@
 
     $comuna = $_POST["comuna_elegida"];
   #Se construye la consulta como un string
- 	$query = "SELECT p.nombre, p.rut, p.edad, p.sexo FROM Personal AS p, Tiendas AS t, Direcciones as d WHERE p.rut = t.rut_jefe AND t.did = d.did AND d.dir_comuna LIKE %'$comuna'%;";
+ 	$query = "SELECT p.nombre, p.rut, p.edad, p.sexo FROM Personal AS p, Tiendas AS t, Direcciones as d WHERE p.rut = t.rut_jefe AND t.did = d.did AND LOWER(d.dir_comuna) = LOWER('$comuna');";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
 	$result = $db -> prepare($query);
