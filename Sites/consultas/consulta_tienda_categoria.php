@@ -25,7 +25,7 @@
   }
   if ($tipo == "comestible")
   {
-    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, Congelados AS cg, Conservas AS co, Frescos AS f  WHERE p.tid = t.tid AND (p.pid = cg.pid OR p.pid = co.pid OR p.pid = f.pid) GROUP BY t.tid, t.rut_jefe, t.did, t.nombre;";
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, Congelados AS cg WHERE p.tid = t.tid AND p.pid = cg.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre UNION SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, Conservas AS co WHERE p.tid = t.tid AND p.pid = co.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre UNION SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, Frescos AS f WHERE p.tid = t.tid AND p.pid = f.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre;";
   }
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
