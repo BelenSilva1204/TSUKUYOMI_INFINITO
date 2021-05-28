@@ -13,7 +13,7 @@
   }
   else
   {
-    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre, SUM(c.cant) as cant FROM Tiendas AS t, Compras AS c, $tipo AS nc WHERE t.tid = c.tid AND c.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre ORDER BY cant DESC LIMIT 3;";
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre, SUM(c.cant) as cant FROM Tiendas AS t, Compras AS c, '$tipo' AS nc WHERE t.tid = c.tid AND c.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre ORDER BY cant DESC LIMIT 3;";
   }
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
