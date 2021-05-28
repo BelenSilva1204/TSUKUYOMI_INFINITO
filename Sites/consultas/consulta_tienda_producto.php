@@ -40,13 +40,14 @@
       <th>Rut jefe</th>
       <th>ID Direccion</th>
       <th>Nombre</th>
+      <th>Cantidad de productos vendidos</th>
 
     </tr>
   
       <?php
         // echo $jefes;
         foreach ($tiendas as $p) {
-          echo "<tr><td>$p[0]</td><td>$p[1]</td><td>$p[2]</td><td>$p[3]</td></tr>";
+          echo "<tr><td>$p[0]</td><td>$p[1]</td><td>$p[2]</td><td>$p[3]</td><td>$p[4]</td></tr>";
       }
       ?>
       
