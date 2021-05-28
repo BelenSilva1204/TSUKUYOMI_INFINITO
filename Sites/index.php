@@ -23,6 +23,8 @@
             <br/><br/>
             <input type="submit" value="Mostrar">
           </form>
+          <br>
+          <br>
         </div>
 
 
@@ -44,6 +46,8 @@
             <br/><br/>
             <input type="submit" value="Buscar">
           </form>
+          <br>
+          <br>
         </div>
 
         <div class="col-md-2 bg-dark text-white">
@@ -70,6 +74,8 @@
             <br/><br/>
             <input type="submit" value="Buscar">
           </form>
+          <br>
+          <br>
         </div>
       </div>
       <div class="row ">
@@ -89,6 +95,8 @@
             <br/><br/>
             <input type="submit" value="Buscar">
           </form>
+          <br>
+          <br>
         </div>
 
         <div class="col-md-2bg-dark text-white">
@@ -108,6 +116,8 @@
             <br/><br/>
             <input type="submit" value="Buscar">
           </form>
+          <br>
+          <br>
         </div>
 
         <div class="col-md-2 bg-dark text-white">
@@ -134,6 +144,8 @@
             <br/><br/>
             <input type="submit" value="Buscar">
           </form>
+          <br>
+          <br>
         </div>
       </div>
    </div>

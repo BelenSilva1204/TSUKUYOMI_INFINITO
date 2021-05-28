@@ -17,7 +17,7 @@ input[type=submit] {
 }
 
 button {
-    background-color: purple;
+    background-color: rgb(83, 5, 83);
     color: white;
     border: none;
     border-radius: 5px;
@@ -27,7 +27,7 @@ button {
 }
 
 h1 {
-    color: purple;
+    color: rgb(75, 3, 75);
 }
 
 h1,
@@ -54,7 +54,7 @@ table.center {
 }
 
 th {
-    background-color: purple;
+    background-color: rgb(88, 6, 88);
     color: white;
 }
 
