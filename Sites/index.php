@@ -34,7 +34,13 @@
 
   <form align="center" action="consultas/consulta_tienda_categoria.php" method="post">
     Tipo de producto:
-    <input type="text" name="tipo_producto_elegido">
+    <select>  
+    <option value="comestible">Comestible</option>}  
+    <option value="no_comestible">No comestible</option>  
+    <option value="congelado">Congelado</option>  
+    <option value="conserva">Conserva</option>  
+    <option value="fresco">Fresco</option>  
+    </select>
     <br/><br/>
     <input type="submit" value="Buscar">
   </form>
@@ -70,7 +76,13 @@
 
 <form align="center" action="consultas/consulta_tienda_producto.php" method="post">
   Tipo de producto:
-  <input type="text" name="tipo_producto">
+  <select>  
+  <option value="comestible">Comestible</option>}  
+  <option value="no_comestible">No comestible</option>  
+  <option value="congelado">Congelado</option>  
+  <option value="conserva">Conserva</option>  
+  <option value="fresco">Fresco</option>  
+  </select>
   <br/><br/>
   <input type="submit" value="Buscar">
 </form>

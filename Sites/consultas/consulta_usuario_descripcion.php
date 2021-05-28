@@ -7,7 +7,7 @@
 
     $descripcion = $_POST["descripcion_producto"];
   #Se construye la consulta como un string
- 	$query = "SELECT u.uid, u.rut, u.nombre, u.sexo, u.edad FROM Usuarios AS u, Productos AS p, Compras AS c WHERE u.rut = c.rut_user AND c.pid = p.pid AND p.descripcion LIKE '%$descripcion%' GROUP BY u.nombre, u.uid, u.rut, u.edad, u.sexo, u.did;";
+ 	$query = "SELECT u.uid, u.rut, u.nombre, u.sexo, u.edad FROM Usuarios AS u, Productos AS p, Compras AS c WHERE u.rut = c.rut_user AND c.pid = p.pid AND p.descripcion LIKE '%$descripcion%' GROUP BY u.uid, u.rut, u.nombre, u.sexo, u.edad;";
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
 	$result = $db -> prepare($query);
