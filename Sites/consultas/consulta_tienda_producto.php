@@ -7,13 +7,25 @@
 
     $tipo= $_POST["tipo_producto_elegido"];
   #Se construye la consulta como un string
-  if ($tipo == "comestible")
+  if ($tipo == "no_comestible")
   {
     $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre, SUM(c.cant) as cant FROM Tiendas AS t, Compras AS c, No_Comestibles AS nc WHERE t.tid = c.tid AND c.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre ORDER BY cant DESC LIMIT 3;";
   }
-  else
+  if ($tipo == "congelado")
   {
-    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre, SUM(c.cant) as cant FROM Tiendas AS t, Compras AS c, '$tipo' AS nc WHERE t.tid = c.tid AND c.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre ORDER BY cant DESC LIMIT 3;";
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre, SUM(c.cant) as cant FROM Tiendas AS t, Compras AS c, Congelados AS nc WHERE t.tid = c.tid AND c.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre ORDER BY cant DESC LIMIT 3;";
+  }
+  if ($tipo == "conserva")
+  {
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre, SUM(c.cant) as cant FROM Tiendas AS t, Compras AS c, Conservas AS nc WHERE t.tid = c.tid AND c.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre ORDER BY cant DESC LIMIT 3;";
+  }
+  if ($tipo == "fresco")
+  {
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre, SUM(c.cant) as cant FROM Tiendas AS t, Compras AS c, Frescos AS nc WHERE t.tid = c.tid AND c.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre ORDER BY cant DESC LIMIT 3;";
+  }
+  if ($tipo == "comestible")
+  {
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre, SUM(c.cant) as cant FROM Tiendas AS t, Compras AS c, Congelados AS cg, Conservas AS co, Frescos AS f WHERE t.tid = c.tid AND (c.pid = cg.pid OR c.pid = co.pid OR c.pid = f.pid) GROUP BY t.tid, t.rut_jefe, t.did, t.nombre ORDER BY cant DESC LIMIT 3;";
   }
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
