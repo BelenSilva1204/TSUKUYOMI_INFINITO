@@ -7,7 +7,26 @@
 
     $tipo= $_POST["tipo_producto_elegido"];
   #Se construye la consulta como un string
- 	$query = "";
+  if ($tipo == "no_comestibles")
+  {
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, No_Comestibles AS nc WHERE p.tid = t.tid AND p.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre;";
+  }
+  if ($tipo == "congelados")
+  {
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, Congelados AS nc WHERE p.tid = t.tid AND p.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre;";
+  }
+  if ($tipo == "conservas")
+  {
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, Conservas AS nc WHERE p.tid = t.tid AND p.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre;";
+  }
+  if ($tipo == "frescos")
+  {
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, Frescos AS nc WHERE p.tid = t.tid AND p.pid = nc.pid GROUP BY t.tid, t.rut_jefe, t.did, t.nombre;";
+  }
+  if ($tipo == "comestibles")
+  {
+    $query = "SELECT t.tid, t.rut_jefe, t.did, t.nombre FROM Productos AS p, Tiendas AS t, Congelados AS cg, Conservas AS co, Frescos AS f  WHERE p.tid = t.tid AND (p.pid = cg.pid OR p.pid = co.pid OR p.pid = f.pid) GROUP BY t.tid, t.rut_jefe, t.did, t.nombre;";
+  }
 
   #Se prepara y ejecuta la consulta. Se obtienen TODOS los resultados
 	$result = $db -> prepare($query);
