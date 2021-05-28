@@ -34,7 +34,7 @@
 
   <form align="center" action="consultas/consulta_tienda_categoria.php" method="post">
     Tipo de producto:
-    <select>  
+    <select id="tipo_producto_elegido" name="tipo_producto_elegido">    
     <option value="comestible">Comestible</option>}  
     <option value="no_comestible">No comestible</option>  
     <option value="congelado">Congelado</option>  
