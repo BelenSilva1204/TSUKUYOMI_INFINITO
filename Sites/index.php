@@ -7,8 +7,8 @@
 
   <br>
   <section class="consultas">
-    <div class="container text-center">
-      <div class="row g-5">
+    <div class="container ">
+      <div class="row ">
         <div class="col-md-2 bg-dark text-white">
           <img
             src="img/map.png"
@@ -72,7 +72,7 @@
           </form>
         </div>
       </div>
-      <div class="row g-5">
+      <div class="row ">
         <div class="col-md-2 bg-dark text-white">
           <img
             src="img/food1.jpg"
