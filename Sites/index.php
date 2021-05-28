@@ -1,6 +1,5 @@
 <?php include('templates/header.html');   ?>
 
-<?php include('templates/head.inc.php');   ?>
 
 <body>
   <h1 align="center">Mi Tienda Web </h1>
@@ -15,6 +14,8 @@
             src="img/map.png"
             alt="consulta logo"
             class="img-fluid"
+            width = "100"
+            height = "100"
           />
           <h3 align="center"> Comunas a las cuales las tiendas hacen despachos:</h3>
 
@@ -31,6 +32,8 @@
             src="img/manager.png"
             alt="consulta logo"
             class="img-fluid"
+            width = "100"
+            height = "100"
           />
 
           <h3 align="center"> ¿Quieres buscar todos los jefes de tiendas ubicadas en una comuna?</h3>
@@ -48,6 +51,8 @@
             src="img/store.png"
             alt="consulta logo"
             class="img-fluid"
+            width = "100"
+            height = "100"
           />
 
 
@@ -73,6 +78,8 @@
             src="img/food1.jpg"
             alt="consulta logo"
             class="img-fluid"
+            width = "100"
+            height = "100"
           />
           <h3 align="center">¿Quieres encontrar todos los usuarios que compraron un producto con dicha descripción?</h3>
 
@@ -89,43 +96,47 @@
             src="img/average.png"
             alt="consulta logo"
             class="img-fluid"
+            width = "100"
+            height = "100"
           />
 
           <h3 align="center">¿Quieres saber la edad promedio de los trabajadores de tienda en una comuna?</h3>
 
-        <form align="center" action="consultas/consulta_edad_tiendas.php" method="post">
-          Comuna:
-          <input type="text" name="comuna_elegida">
-          <br/><br/>
-          <input type="submit" value="Buscar">
-        </form>
+          <form align="center" action="consultas/consulta_edad_tiendas.php" method="post">
+            Comuna:
+            <input type="text" name="comuna_elegida">
+            <br/><br/>
+            <input type="submit" value="Buscar">
+          </form>
+        </div>
+
+        <div class="col-md-2 bg-dark text-white">
+          <img
+            src="img/star.png"
+            alt="consulta logo"
+            class="img-fluid"
+            width = "100"
+            height = "100"
+          />
+
+
+          <h3 align="center">¿Quieres encontrar todas las tiendas que han registrado la venta de la mayor cantidad de productos del tipo seleccionado?</h3>
+
+          <form align="center" action="consultas/consulta_tienda_producto.php" method="post">
+            Tipo de producto:
+            <select id="tipo_producto_elegido" name="tipo_producto_elegido">
+            <option value="comestible">Comestible</option>}
+            <option value="no_comestible">No comestible</option>
+            <option value="congelado">Congelado</option>
+            <option value="conserva">Conserva</option>
+            <option value="fresco">Fresco</option>
+            </select>
+            <br/><br/>
+            <input type="submit" value="Buscar">
+          </form>
+        </div>
       </div>
-
-      <div class="col-md-2 bg-dark text-white">
-        <img
-          src="img/star.png"
-          alt="consulta logo"
-          class="img-fluid"
-        />
-
-
-        <h3 align="center">¿Quieres encontrar todas las tiendas que han registrado la venta de la mayor cantidad de productos del tipo seleccionado?</h3>
-
-        <form align="center" action="consultas/consulta_tienda_producto.php" method="post">
-          Tipo de producto:
-          <select id="tipo_producto_elegido" name="tipo_producto_elegido">
-          <option value="comestible">Comestible</option>}
-          <option value="no_comestible">No comestible</option>
-          <option value="congelado">Congelado</option>
-          <option value="conserva">Conserva</option>
-          <option value="fresco">Fresco</option>
-          </select>
-          <br/><br/>
-          <input type="submit" value="Buscar">
-        </form>
-      </div>
-    </div>
-  </div>
+   </div>
 <br>
 <br>
 <br>
