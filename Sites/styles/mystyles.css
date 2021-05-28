@@ -17,7 +17,7 @@ input[type=submit] {
 }
 
 button {
-    background-color: green;
+    background-color: purple;
     color: white;
     border: none;
     border-radius: 5px;
@@ -27,7 +27,7 @@ button {
 }
 
 h1 {
-    color: green;
+    color: purple;
 }
 
 h1,
@@ -40,6 +40,7 @@ h4 {
 body {
     width: 100%;
     font-size: 20px;
+    font-family: "Helvetica", sans-serif;
     text-align: center;
 }
 
