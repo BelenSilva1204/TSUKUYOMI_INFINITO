@@ -36,10 +36,10 @@
 
   <table>
     <tr>
-      <th>Nombre</th>
+      <th>ID</th>
       <th>Rut jefe</th>
-      <th>Direccion</th>
-      <th>Comuna</th>
+      <th>ID Direccion</th>
+      <th>Nombre</th>
 
     </tr>
   
