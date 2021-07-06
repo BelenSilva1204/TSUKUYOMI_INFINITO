@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION
 
 -- declaramos la función y sus argumentos
-generar_compra (user int, pid int, tienda int, cantidad int)
+generar_compra (us_id int, pid int, tienda int, cantidad int)
 
 -- declaramos lo que retorna 
 RETURNS BOOLEAN AS $$
@@ -19,8 +19,8 @@ comuna_var varchar(50);
 BEGIN
 
     -- control de flujo
-    SELECT INTO rut_user usuarios.nombre FROM usuarios WHERE usuarios.uid=user LIMIT 1;
-    SELECT INTO direccion_var usuarios.did FROM usuarios WHERE usuarios.uid=user LIMIT 1;
+    SELECT INTO rut_user usuarios.nombre FROM usuarios WHERE usuarios.uid=us_id LIMIT 1;
+    SELECT INTO direccion_var usuarios.did FROM usuarios WHERE usuarios.uid=us_id LIMIT 1;
     SELECT INTO comuna_var 
     direcciones.dir_comuna FROM usuarios, direcciones  
     WHERE usuarios.uid=user AND usuarios.did=direcciones.did LIMIT 1;
@@ -41,12 +41,6 @@ BEGIN
         RETURN FALSE;
 
     END IF;
-
-    FOR condicion LOOP
-        hacer cosas
-    END LOOP;
-
-
 
 -- -- finalizamos la definición de la función y declaramos el lenguaje
 END
