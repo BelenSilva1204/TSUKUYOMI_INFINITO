@@ -1,24 +1,32 @@
 CREATE OR REPLACE FUNCTION
 
-import_users (userid int, nombre varchar(100), rut varchar(25), edad int, sexo varchar(10), did int)
+import_users (nombre varchar(100), rut varchar(25), edad int, sexo varchar(10), did int)
 
 RETURNS BOOLEAN AS $$
 
+DECLARE
+uidmax int;
+
 BEGIN 
 
-    IF 'password' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
-        ALTER TABLE usuarios ADD password varchar(20);
-        UPDATE usuarios SET password = LTRIM(STR(RAND()*(100000000-1)+1, 8));
+    IF 'contrasena' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
+        ALTER TABLE usuarios ADD contrasena varchar(20);
+        UPDATE usuarios SET contrasena = LTRIM(STR(RAND()*(100000000-1)+1, 8));
     END IF;
 
     IF rut NOT IN (SELECT rut FROM Usuarios) THEN
         
-        INSERT INTO usuarios values(userid, nombre, rut, edad, sexo, did, LTRIM(STR(RAND()*(100000000-1)+1, 8)));
+        SELECT INTO uidmax
+        MAX(uid)
+        FROM usuarios;
+
+        INSERT INTO usuarios values(uidmax, nombre, rut, edad, sexo, did, LTRIM(STR(RAND()*(100000000-1)+1, 8)));
         RETURN TRUE;
     ELSE
         RETURN FALSE;
     END IF;
 END
+
 $$ language plpgsql
 
 
