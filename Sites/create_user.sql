@@ -18,9 +18,10 @@ BEGIN
         RETURN FALSE;
     END IF;
 
-    SELECT INTO udidmax 
-    SELECT did WHERE dir_calle == udir_calle AND dir_comuna == udir_comuna
-    FROM direcciones;
+    SELECT did INTO udidmax 
+    FROM direcciones
+    WHERE dir_calle == udir_calle 
+    AND dir_comuna == udir_comuna;
 
     SELECT INTO uidmax
     MAX(uid)
