@@ -27,7 +27,7 @@ BEGIN
     MAX(uid)
     FROM usuarios;
 
-    insert into usuarios values(uidmax + 1, nombre, rut, edad, sexo, udidmax);
+    insert into usuarios values(uidmax + 1, unombre, urut, uedad, usexo, udidmax);
     RETURN TRUE;
 
 -- -- finalizamos la definición de la función y declaramos el lenguaje
