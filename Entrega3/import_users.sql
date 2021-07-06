@@ -16,7 +16,7 @@ BEGIN
         SELECT INTO upassword
         LTRIM(STR(rand()*(100000000-1)+1, 8));
 
-        UPDATE usuarios SET contrasena = LTRIM(STR(rand()*(100000000-1)+1, 8));
+        UPDATE usuarios SET contrasena = upassword;
     END IF;
     /* IF 'contrasena' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
         ALTER TABLE usuarios ADD contrasena varchar(20);
@@ -29,7 +29,7 @@ BEGIN
         MAX(uid)
         FROM usuarios;
 
-        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, LTRIM(STR(rand()*(100000000-1)+1, 8)));
+        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, upassword);
         RETURN TRUE;
     ELSE
         RETURN FALSE;
