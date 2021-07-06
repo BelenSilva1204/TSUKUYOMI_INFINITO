@@ -15,7 +15,7 @@ BEGIN
     END IF; */
     IF 'contrasena' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
         ALTER TABLE usuarios ADD contrasena varchar(20);
-        UPDATE usuarios SET contrasena = 1);
+        UPDATE usuarios SET contrasena = 1;
     END IF;
 
     IF rut NOT IN (SELECT rut FROM Usuarios) THEN
