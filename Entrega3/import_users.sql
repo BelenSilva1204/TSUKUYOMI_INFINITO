@@ -9,14 +9,14 @@ uidmax int;
 
 BEGIN 
 
-    /* IF 'contrasena' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
-        ALTER TABLE usuarios ADD contrasena varchar(20);
-        UPDATE usuarios SET contrasena = LTRIM(STR(RAND()*(100000000-1)+1, 8));
-    END IF; */
     IF 'contrasena' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
         ALTER TABLE usuarios ADD contrasena varchar(20);
-        UPDATE usuarios SET contrasena = '1';
+        UPDATE usuarios SET contrasena = LTRIM((RANDOM()*(100000000-1)+1, 8)::varchar(20));
     END IF;
+   /*  IF 'contrasena' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
+        ALTER TABLE usuarios ADD contrasena varchar(20);
+        UPDATE usuarios SET contrasena = '1';
+    END IF; */
 
     IF urut NOT IN (SELECT rut FROM Usuarios) THEN
         
@@ -24,7 +24,7 @@ BEGIN
         MAX(uid)
         FROM usuarios;
 
-        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, '1');
+        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, LTRIM((RANDOM()*(100000000-1)+1, 8)::varchar(20)));
         RETURN TRUE;
     ELSE
         RETURN FALSE;
