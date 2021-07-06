@@ -15,7 +15,7 @@ RETURNS BOOLEAN AS $$
 BEGIN
 
     -- control de flujo
-    IF pid_var IN (SELECT pid FROM Productos WHERE Productos.tid=tid_tid_var) THEN
+    IF pid_var IN (SELECT pid FROM Productos WHERE Productos.tid=tid_var) THEN
         RETURN TRUE;
     
     ELSE
