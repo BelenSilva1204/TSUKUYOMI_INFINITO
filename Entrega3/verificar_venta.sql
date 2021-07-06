@@ -1,7 +1,7 @@
 CREATE OR REPLACE FUNCTION
 
 -- declaramos la función y sus argumentos
-verificar_venta (pid int, tid int)
+verificar_venta (pid_var int, tid_var int)
 
 -- declaramos lo que retorna 
 RETURNS BOOLEAN AS $$
@@ -15,7 +15,7 @@ RETURNS BOOLEAN AS $$
 BEGIN
 
     -- control de flujo
-    IF pid IN (SELECT pid FROM Productos WHERE Productos.tid=tid) THEN
+    IF pid_var IN (SELECT pid FROM Productos WHERE Productos.tid=tid_tid_var) THEN
         RETURN TRUE;
     
     ELSE
