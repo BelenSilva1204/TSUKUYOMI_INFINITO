@@ -23,7 +23,7 @@ BEGIN
     SELECT INTO direccion_var usuarios.did FROM usuarios WHERE usuarios.uid=us_id LIMIT 1;
     SELECT INTO comuna_var 
     direcciones.dir_comuna FROM usuarios, direcciones  
-    WHERE usuarios.uid=user AND usuarios.did=direcciones.did LIMIT 1;
+    WHERE usuarios.uid=us_id AND usuarios.did=direcciones.did LIMIT 1;
     IF comuna_var IN (SELECT despachos.dir_comuna FROM despachos WHERE despachos.tid=tienda) THEN
         SELECT INTO boleta_var
         MAX(boleta)
