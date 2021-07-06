@@ -6,7 +6,7 @@ RETURNS BOOLEAN AS $$
 
 BEGIN
     IF urut IN (SELECT rut FROM usuarios) THEN
-        IF upass IN (SELECT contrasena FROM usuarios WHERE rut = urut)
+        IF upass IN (SELECT contrasena FROM usuarios WHERE rut = urut) THEN
             RETURN TRUE;
         END IF;
     ELSE
