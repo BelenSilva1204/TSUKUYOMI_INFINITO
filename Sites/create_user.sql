@@ -20,8 +20,8 @@ BEGIN
 
     SELECT did INTO udidmax 
     FROM direcciones
-    WHERE dir_calle == udir_calle 
-    AND dir_comuna == udir_comuna;
+    WHERE dir_calle = udir_calle 
+    AND dir_comuna = udir_comuna;
 
     SELECT INTO uidmax
     MAX(uid)
