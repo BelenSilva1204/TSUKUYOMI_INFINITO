@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION
 
-import_users (nombre varchar(100), rut varchar(25), edad int, sexo varchar(10), did int)
+import_users (unombre varchar(100), urut varchar(25), uedad int, usexo varchar(10), udid int)
 
 RETURNS BOOLEAN AS $$
 
@@ -18,13 +18,13 @@ BEGIN
         UPDATE usuarios SET contrasena = '1';
     END IF;
 
-    IF rut NOT IN (SELECT rut FROM Usuarios) THEN
+    IF urut NOT IN (SELECT rut FROM Usuarios) THEN
         
         SELECT INTO uidmax
         MAX(uid)
         FROM usuarios;
 
-        INSERT INTO usuarios values(uidmax, nombre, rut, edad, sexo, did, LTRIM(STR(RAND()*(100000000-1)+1, 8)));
+        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, '1');
         RETURN TRUE;
     ELSE
         RETURN FALSE;
