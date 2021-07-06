@@ -30,9 +30,6 @@ BEGIN
     insert into usuarios values(uidmax + 1, nombre, rut, edad, sexo, udidmax);
     RETURN TRUE;
 
-    END IF;
-        
-
 -- -- finalizamos la definición de la función y declaramos el lenguaje
 END
 $$ language plpgsql
