@@ -24,7 +24,7 @@ BEGIN
         MAX(uid)
         FROM usuarios;
 
-        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, LTRIM(STR(rand()*(100000000-1)+1, 8));
+        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, LTRIM(STR(rand()*(100000000-1)+1, 8)));
         RETURN TRUE;
     ELSE
         RETURN FALSE;
