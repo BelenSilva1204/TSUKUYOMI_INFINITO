@@ -6,7 +6,7 @@ RETURNS BOOLEAN AS $$
 
 DECLARE
 uidmax int;
-upassword int;
+upassword varchar;
 
 BEGIN 
 
