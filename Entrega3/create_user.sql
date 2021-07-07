@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION
 
-create_user(unombre varchar(100), urut VARCHAR(25), uedad int, usexo varchar(10), udir_calle varchar(100), udir_comuna varchar(100))
+create_user(unombre varchar(100), urut VARCHAR(25), uedad int, usexo varchar(10), udir_calle varchar(100), udir_comuna varchar(100), upassword varchar(20))
 
 -- declaramos lo que retorna 
 RETURNS BOOLEAN AS $$
@@ -27,7 +27,7 @@ BEGIN
     MAX(uid)
     FROM usuarios;
 
-    insert into usuarios values(uidmax + 1, unombre, urut, uedad, usexo, udidmax);
+    insert into usuarios values(uidmax + 1, unombre, urut, uedad, usexo, udidmax, upassword);
     RETURN TRUE;
 
 -- -- finalizamos la definición de la función y declaramos el lenguaje

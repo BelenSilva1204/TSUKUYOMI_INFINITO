@@ -29,6 +29,9 @@ BEGIN
         MAX(uid)
         FROM usuarios;
 
+        SELECT INTO upassword
+        TRIM((RANDOM()*(100000000-1)+1)::varchar(20));
+
         INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, upassword);
         RETURN TRUE;
     ELSE
