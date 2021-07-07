@@ -16,7 +16,7 @@ BEGIN
     
     UPDATE usuarios
     SET contrasena = new_password
-    WHERE uid = log_usuario;
+    WHERE rut = log_usuario;
 
     RETURN TRUE;
 
