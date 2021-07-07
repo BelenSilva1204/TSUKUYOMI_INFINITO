@@ -19,7 +19,7 @@ comuna_var varchar(50);
 BEGIN
 
     -- control de flujo
-    SELECT INTO rut_user usuarios.nombre FROM usuarios WHERE usuarios.uid=us_id LIMIT 1;
+    SELECT INTO rut_user usuarios.rut FROM usuarios WHERE usuarios.uid=us_id LIMIT 1;
     SELECT INTO direccion_var usuarios.did FROM usuarios WHERE usuarios.uid=us_id LIMIT 1;
     SELECT INTO comuna_var 
     direcciones.dir_comuna FROM usuarios, direcciones  
