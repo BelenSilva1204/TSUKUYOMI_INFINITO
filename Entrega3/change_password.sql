@@ -6,7 +6,7 @@ change_password(log_usuario varchar(25), current_password varchar(20), new_passw
 RETURNS BOOLEAN AS $$
 
 BEGIN
-    if current_password NOT IN (SELECT contrasena FROM usuarios WHERE uid = log_usuario AND contrasena = current_password) THEN
+    if current_password NOT IN (SELECT contrasena FROM usuarios WHERE rut = log_usuario AND contrasena = current_password) THEN
         RETURN FALSE;
     END IF;
 
