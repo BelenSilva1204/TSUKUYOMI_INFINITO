@@ -14,7 +14,7 @@ BEGIN
         ALTER TABLE usuarios ADD contrasena varchar(20);
 
         SELECT INTO upassword
-        LTRIM((RANDOM()*(100000000-1)+1, 8)::varchar(20));
+        TRIM((RANDOM()*(100000000-1)+1)::varchar(20));
         
         UPDATE usuarios SET contrasena = upassword;
     END IF;
