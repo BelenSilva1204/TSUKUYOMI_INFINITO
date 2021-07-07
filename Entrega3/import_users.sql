@@ -6,12 +6,17 @@ RETURNS BOOLEAN AS $$
 
 DECLARE
 uidmax int;
+upassword int;
 
 BEGIN 
 
     IF 'contrasena' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
         ALTER TABLE usuarios ADD contrasena varchar(20);
-        UPDATE usuarios SET contrasena = LTRIM((RANDOM()*(100000000-1)+1, 8)::varchar(20));
+
+        SELECT INTO upassword
+        LTRIM((RANDOM()*(100000000-1)+1, 8)::varchar(20));
+        
+        UPDATE usuarios SET contrasena = upassword;
     END IF;
    /*  IF 'contrasena' NOT IN (SELECT column_name FROM information_schema.columns WHERE table_name='usuarios') THEN
         ALTER TABLE usuarios ADD contrasena varchar(20);
@@ -24,7 +29,7 @@ BEGIN
         MAX(uid)
         FROM usuarios;
 
-        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, LTRIM((RANDOM()*(100000000-1)+1, 8)::varchar(20)));
+        INSERT INTO usuarios values(uidmax, unombre, urut, uedad, usexo, udid, upassword);
         RETURN TRUE;
     ELSE
         RETURN FALSE;
