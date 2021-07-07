@@ -1,12 +1,16 @@
 CREATE OR REPLACE FUNCTION
 
-change_password(log_usuario int, current_password varchar(100), new_password varchar(100))
+change_password(log_usuario varchar(25), current_password varchar(20), new_password varchar(20), new_password_two varchar(25))
 
 -- declaramos lo que retorna 
 RETURNS BOOLEAN AS $$
 
 BEGIN
     if current_password NOT IN (SELECT contrasena FROM usuarios WHERE uid = log_usuario AND contrasena = current_password) THEN
+        RETURN FALSE;
+    END IF;
+
+    if new_password != new_password_two THEN
         RETURN FALSE;
     END IF;
     
